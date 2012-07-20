@@ -1,0 +1,6 @@
+[mobcon]
+name=mobcon Repository
+baseurl=http://puppet/package
+enabled=1
+gpgcheck=0
+

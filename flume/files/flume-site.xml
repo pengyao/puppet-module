@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl"  href="configuration.xsl"?>
+
+<!--
+ Licensed to Cloudera, Inc. under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  Cloudera, Inc. licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<!-- site specific configuration variables should go here. --> 
+<configuration>
+
+  <property>
+    <name>flume.master.servers</name>
+    <value>flumemaster.mobcon.inside</value>
+    <description>This is the address for the config servers status server (http)</description>
+  </property>
+
+  <property>
+    <name>flume.agent.logdir</name>
+    <value>/var/flume/agent</value>
+    <description> This is the directory that write-ahead logging data or disk-failover data is collected from applications gets written to. 
+	              The agent watches this directory.  
+    </description>
+  </property>
+<!--
+  <property>
+    <name>flume.collector.event.host</name>
+    <value>flumemaster.mobcon.inside</value>
+    <description>This is the host name of the default "remote" collector.</description>
+  </property>
+
+  <property>
+    <name>flume.collector.port</name>
+    <value>35853</value>
+    <description>This default tcp port that the collector listens to in order to receive events it is collecting.</description>
+  </property>
+-->
+
+  <property>
+    <name>flume.collector.output.format</name>
+    <value>raw</value>
+    <description>This is the output format for the data written to the
+                 collector.  There are several formats available:
+                 avro - Avro Native file format.  Default currently is uncompressed.
+                 avrodata - this outputs data as an avro binary encoded data
+                 avrojson - this outputs data as json encoded by avro
+                 debug - this is a format for debugging
+                 json - this outputs data as json
+                 log4j - outputs events in a pattern similar to Hadoop's log4j pattern
+                 raw - Event body only.  This is most similar to copying a file but does not preserve any uniqifying metadata like host/timestamp/nanos.
+                 seqfile - this is the hadoop sequence file format with WritableEventKeys and WritableEvent objects.
+                 syslog - outputs events in a syslog-like format
+    </description>
+  </property>
+
+<!--
+  <property>
+    <name>flume.agent.logdir.retransmit</name>
+    <value>7200000</value>
+    <description>The time (in milliseconds) before a sent event is
+                 assumed lost and needs to be retried in end-to-end reliability
+                 mode again.  This should be at least 2x the
+                 flume.collector.roll.millis.
+    </description>
+  </property>
+
+  <property>
+    <name>flume.collector.roll.millis</name>
+    <value>3600000</value>
+    <description>The time (in milliseconds)
+                 between when hdfs files are closed and a new file is opened (rolled).
+    </description>
+  </property>
+
+  <property>
+    <name>flume.collector.dfs.dir</name>
+    <value>hdfs://namenode.mobcon.inside/user/${user.name}/collected</value>
+    <description>This is a dfs directory that is the the final resting
+                 place for logs to be stored in.  This defaults to a local dir in
+                 /tmp but can be hadoop URI path that such as hdfs://namenode/path/
+    </description>
+  </property>
+-->
+
+  <property>
+    <name>flume.collector.dfs.compress.codec</name>
+    <value>SnappyCodec</value>
+    <description>Writes formatted data compressed in specified codec to dfs. Value is None, GzipCodec, DefaultCodec (deflate), BZip2Codec, SnappyCodec or any other Codec Hadoop is aware of </description>
+  </property>
+
+<!--
+  <property>
+    <name>flume.plugin.classes</name>
+    <value>helloworld.HelloWorldSink,helloworld.HelloWorldSource,helloworld.HelloWorldDecorator</value>
+    <description>Comma separated list of plugin classes</description>
+  </property>
+-->
+</configuration>

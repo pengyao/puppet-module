@@ -1,0 +1,2159 @@
+###############################################################################
+###############################################################################
+#
+# HOST DEFINITION
+#
+###############################################################################
+###############################################################################
+
+# Define a host for the local machine
+
+define host{
+        use                     linux-server            ; Name of host template to use
+                                                        ; This host definition will inherit all variables that are defined
+                                                        ; in (or inherited by) the linux-server host template definition.
+        host_name               localhost
+        alias                   localhost
+        address                 127.0.0.1
+        }
+
+
+# Define a host for the jack90096
+
+define host{
+        use                     linux-server
+        host_name               jack90096
+        alias                   jack90096
+        address                 10.24.90.96
+        }
+
+
+# Define a host for the jack90097
+
+define host{
+        use                     linux-server
+        host_name               jack90097
+        alias                   jack90097
+        address                 10.24.90.97
+        }
+
+
+# Define a host for the jack90098
+
+define host{
+        use                     linux-server
+        host_name               jack90098
+        alias                   jack90098
+        address                 10.24.90.98
+        }
+
+
+# Define a host for the jack90099
+
+define host{
+        use                     linux-server
+        host_name               jack90099
+        alias                   jack90099
+        address                 10.24.90.99
+        }
+
+
+# Define a host for the area90101
+
+define host{
+        use                     linux-server
+        host_name               area90101
+        alias                   area90101
+        address                 10.24.90.101
+        }
+
+
+# Define a host for the area90102
+
+define host{
+        use                     linux-server
+        host_name               area90102
+        alias                   area90102
+        address                 10.24.90.102
+        }
+
+
+# Define a host for the area90103
+
+define host{
+        use                     linux-server
+        host_name               area90103
+        alias                   area90103
+        address                 10.24.90.103
+        }
+
+
+# Define a host for the area90104
+
+define host{
+        use                     linux-server
+        host_name               area90104
+        alias                   area90104
+        address                 10.24.90.104
+        }
+
+
+# Define a host for the area90105
+
+define host{
+        use                     linux-server
+        host_name               area90105
+        alias                   area90105
+        address                 10.24.90.105
+        }
+
+
+# Define a host for the area90106
+
+define host{
+        use                     linux-server
+        host_name               area90106
+        alias                   area90106
+        address                 10.24.90.106
+        }
+
+
+# Define a host for the area90107
+
+define host{
+        use                     linux-server
+        host_name               area90107
+        alias                   area90107
+        address                 10.24.90.107
+        }
+
+
+# Define a host for the area90108
+
+define host{
+        use                     linux-server
+        host_name               area90108
+        alias                   area90108
+        address                 10.24.90.108
+        }
+
+
+# Define a host for the area90109
+
+define host{
+        use                     linux-server
+        host_name               area90109
+        alias                   area90109
+        address                 10.24.90.109
+        }
+
+
+# Define a host for the area90110
+
+define host{
+        use                     linux-server
+        host_name               area90110
+        alias                   area90110
+        address                 10.24.90.110
+        }
+
+
+# Define a host for the area90111
+
+define host{
+        use                     linux-server
+        host_name               area90111
+        alias                   area90111
+        address                 10.24.90.111
+        }
+
+
+# Define a host for the area90112
+
+define host{
+        use                     linux-server
+        host_name               area90112
+        alias                   area90112
+        address                 10.24.90.112
+        }
+
+
+# Define a host for the area90113
+
+define host{
+        use                     linux-server
+        host_name               area90113
+        alias                   area90113
+        address                 10.24.90.113
+        }
+
+
+# Define a host for the area90114
+
+define host{
+        use                     linux-server
+        host_name               area90114
+        alias                   area90114
+        address                 10.24.90.114
+        }
+
+
+# Define a host for the area90115
+
+define host{
+        use                     linux-server
+        host_name               area90115
+        alias                   area90115
+        address                 10.24.90.115
+        }
+
+
+# Define a host for the area90116
+
+define host{
+        use                     linux-server
+        host_name               area90116
+        alias                   area90116
+        address                 10.24.90.116
+        }
+
+
+# Define a host for the area90117
+
+define host{
+        use                     linux-server
+        host_name               area90117
+        alias                   area90117
+        address                 10.24.90.117
+        }
+
+
+# Define a host for the area90118
+
+define host{
+        use                     linux-server
+        host_name               area90118
+        alias                   area90118
+        address                 10.24.90.118
+        }
+
+
+# Define a host for the area90119
+
+define host{
+        use                     linux-server
+        host_name               area90119
+        alias                   area90119
+        address                 10.24.90.119
+        }
+
+
+# Define a host for the area90120
+
+define host{
+        use                     linux-server
+        host_name               area90120
+        alias                   area90120
+        address                 10.24.90.120
+        }
+
+
+# Define a host for the area90121
+
+define host{
+        use                     linux-server
+        host_name               area90121
+        alias                   area90121
+        address                 10.24.90.121
+        }
+
+
+# Define a host for the area90122
+
+define host{
+        use                     linux-server
+        host_name               area90122
+        alias                   area90122
+        address                 10.24.90.122
+        }
+
+
+# Define a host for the area90123
+
+define host{
+        use                     linux-server
+        host_name               area90123
+        alias                   area90123
+        address                 10.24.90.123
+        }
+
+
+# Define a host for the area90124
+
+define host{
+        use                     linux-server
+        host_name               area90124
+        alias                   area90124
+        address                 10.24.90.124
+        }
+
+
+# Define a host for the area90125
+
+define host{
+        use                     linux-server
+        host_name               area90125
+        alias                   area90125
+        address                 10.24.90.125
+        }
+
+
+# Define a host for the area90126
+
+define host{
+        use                     linux-server
+        host_name               area90126
+        alias                   area90126
+        address                 10.24.90.126
+        }
+
+
+# Define a host for the area90127
+
+define host{
+        use                     linux-server
+        host_name               area90127
+        alias                   area90127
+        address                 10.24.90.127
+        }
+
+
+# Define a host for the area90128
+
+define host{
+        use                     linux-server
+        host_name               area90128
+        alias                   area90128
+        address                 10.24.90.128
+        }
+
+
+# Define a host for the area90129
+
+define host{
+        use                     linux-server
+        host_name               area90129
+        alias                   area90129
+        address                 10.24.90.129
+        }
+
+
+# Define a host for the area90130
+
+define host{
+        use                     linux-server
+        host_name               area90130
+        alias                   area90130
+        address                 10.24.90.130
+        }
+
+
+# Define a host for the area90131
+
+define host{
+        use                     linux-server
+        host_name               area90131
+        alias                   area90131
+        address                 10.24.90.131
+        }
+
+
+# Define a host for the area90132
+
+define host{
+        use                     linux-server
+        host_name               area90132
+        alias                   area90132
+        address                 10.24.90.132
+        }
+
+
+# Define a host for the area90133
+
+define host{
+        use                     linux-server
+        host_name               area90133
+        alias                   area90133
+        address                 10.24.90.133
+        }
+
+
+# Define a host for the area90134
+
+define host{
+        use                     linux-server
+        host_name               area90134
+        alias                   area90134
+        address                 10.24.90.134
+        }
+
+
+# Define a host for the area90135
+
+define host{
+        use                     linux-server
+        host_name               area90135
+        alias                   area90135
+        address                 10.24.90.135
+        }
+
+
+# Define a host for the area90136
+
+define host{
+        use                     linux-server
+        host_name               area90136
+        alias                   area90136
+        address                 10.24.90.136
+        }
+
+
+# Define a host for the area90137
+
+define host{
+        use                     linux-server
+        host_name               area90137
+        alias                   area90137
+        address                 10.24.90.137
+        }
+
+
+# Define a host for the area90138
+
+define host{
+        use                     linux-server
+        host_name               area90138
+        alias                   area90138
+        address                 10.24.90.138
+        }
+
+
+# Define a host for the area90139
+
+define host{
+        use                     linux-server
+        host_name               area90139
+        alias                   area90139
+        address                 10.24.90.139
+        }
+
+
+# Define a host for the area90140
+
+define host{
+        use                     linux-server
+        host_name               area90140
+        alias                   area90140
+        address                 10.24.90.140
+        }
+
+
+# Define a host for the area90141
+
+define host{
+        use                     linux-server
+        host_name               area90141
+        alias                   area90141
+        address                 10.24.90.141
+        }
+
+
+# Define a host for the area90142
+
+define host{
+        use                     linux-server
+        host_name               area90142
+        alias                   area90142
+        address                 10.24.90.142
+        }
+
+
+# Define a host for the area90143
+
+define host{
+        use                     linux-server
+        host_name               area90143
+        alias                   area90143
+        address                 10.24.90.143
+        }
+
+
+# Define a host for the area90144
+
+define host{
+        use                     linux-server
+        host_name               area90144
+        alias                   area90144
+        address                 10.24.90.144
+        }
+
+
+# Define a host for the area90145
+
+define host{
+        use                     linux-server
+        host_name               area90145
+        alias                   area90145
+        address                 10.24.90.145
+        }
+
+
+# Define a host for the area90146
+
+define host{
+        use                     linux-server
+        host_name               area90146
+        alias                   area90146
+        address                 10.24.90.146
+        }
+
+
+# Define a host for the area90147
+
+define host{
+        use                     linux-server
+        host_name               area90147
+        alias                   area90147
+        address                 10.24.90.147
+        }
+
+
+# Define a host for the area90148
+
+define host{
+        use                     linux-server
+        host_name               area90148
+        alias                   area90148
+        address                 10.24.90.148
+        }
+
+
+# Define a host for the area90149
+
+define host{
+        use                     linux-server
+        host_name               area90149
+        alias                   area90149
+        address                 10.24.90.149
+        }
+
+
+# Define a host for the area90150
+
+define host{
+        use                     linux-server
+        host_name               area90150
+        alias                   area90150
+        address                 10.24.90.150
+        }
+
+
+# Define a host for the area90151
+
+define host{
+        use                     linux-server
+        host_name               area90151
+        alias                   area90151
+        address                 10.24.90.151
+        }
+
+
+# Define a host for the area90152
+
+define host{
+        use                     linux-server
+        host_name               area90152
+        alias                   area90152
+        address                 10.24.90.152
+        }
+
+
+# Define a host for the area90153
+
+define host{
+        use                     linux-server
+        host_name               area90153
+        alias                   area90153
+        address                 10.24.90.153
+        }
+
+
+# Define a host for the area90154
+
+define host{
+        use                     linux-server
+        host_name               area90154
+        alias                   area90154
+        address                 10.24.90.154
+        }
+
+
+# Define a host for the area90155
+
+define host{
+        use                     linux-server
+        host_name               area90155
+        alias                   area90155
+        address                 10.24.90.155
+        }
+
+
+# Define a host for the area90156
+
+define host{
+        use                     linux-server
+        host_name               area90156
+        alias                   area90156
+        address                 10.24.90.156
+        }
+
+
+# Define a host for the area90157
+
+define host{
+        use                     linux-server
+        host_name               area90157
+        alias                   area90157
+        address                 10.24.90.157
+        }
+
+
+# Define a host for the area90158
+
+define host{
+        use                     linux-server
+        host_name               area90158
+        alias                   area90158
+        address                 10.24.90.158
+        }
+
+
+# Define a host for the area90159
+
+define host{
+        use                     linux-server
+        host_name               area90159
+        alias                   area90159
+        address                 10.24.90.159
+        }
+
+
+# Define a host for the area90160
+
+define host{
+        use                     linux-server
+        host_name               area90160
+        alias                   area90160
+        address                 10.24.90.160
+        }
+
+
+# Define a host for the area90161
+
+define host{
+        use                     linux-server
+        host_name               area90161
+        alias                   area90161
+        address                 10.24.90.161
+        }
+
+
+# Define a host for the area90162
+
+define host{
+        use                     linux-server
+        host_name               area90162
+        alias                   area90162
+        address                 10.24.90.162
+        }
+
+
+# Define a host for the area90163
+
+define host{
+        use                     linux-server
+        host_name               area90163
+        alias                   area90163
+        address                 10.24.90.163
+        }
+
+
+# Define a host for the area90164
+
+define host{
+        use                     linux-server
+        host_name               area90164
+        alias                   area90164
+        address                 10.24.90.164
+        }
+
+
+# Define a host for the area90165
+
+define host{
+        use                     linux-server
+        host_name               area90165
+        alias                   area90165
+        address                 10.24.90.165
+        }
+
+
+# Define a host for the area90166
+
+define host{
+        use                     linux-server
+        host_name               area90166
+        alias                   area90166
+        address                 10.24.90.166
+        }
+
+
+# Define a host for the area90167
+
+define host{
+        use                     linux-server
+        host_name               area90167
+        alias                   area90167
+        address                 10.24.90.167
+        }
+
+
+# Define a host for the area90168
+
+define host{
+        use                     linux-server
+        host_name               area90168
+        alias                   area90168
+        address                 10.24.90.168
+        }
+
+
+# Define a host for the area90169
+
+define host{
+        use                     linux-server
+        host_name               area90169
+        alias                   area90169
+        address                 10.24.90.169
+        }
+
+
+# Define a host for the area90170
+
+define host{
+        use                     linux-server
+        host_name               area90170
+        alias                   area90170
+        address                 10.24.90.170
+        }
+
+
+# Define a host for the area90171
+
+define host{
+        use                     linux-server
+        host_name               area90171
+        alias                   area90171
+        address                 10.24.90.171
+        }
+
+
+# Define a host for the area90172
+
+define host{
+        use                     linux-server
+        host_name               area90172
+        alias                   area90172
+        address                 10.24.90.172
+        }
+
+
+# Define a host for the area90173
+
+define host{
+        use                     linux-server
+        host_name               area90173
+        alias                   area90173
+        address                 10.24.90.173
+        }
+
+
+# Define a host for the area90174
+
+define host{
+        use                     linux-server
+        host_name               area90174
+        alias                   area90174
+        address                 10.24.90.174
+        }
+
+
+# Define a host for the area90175
+
+define host{
+        use                     linux-server
+        host_name               area90175
+        alias                   area90175
+        address                 10.24.90.175
+        }
+
+
+# Define a host for the area90176
+
+define host{
+        use                     linux-server
+        host_name               area90176
+        alias                   area90176
+        address                 10.24.90.176
+        }
+
+
+# Define a host for the area90177
+
+define host{
+        use                     linux-server
+        host_name               area90177
+        alias                   area90177
+        address                 10.24.90.177
+        }
+
+
+# Define a host for the area90178
+
+define host{
+        use                     linux-server
+        host_name               area90178
+        alias                   area90178
+        address                 10.24.90.178
+        }
+
+
+# Define a host for the area90179
+
+define host{
+        use                     linux-server
+        host_name               area90179
+        alias                   area90179
+        address                 10.24.90.179
+        }
+
+
+# Define a host for the area90180
+
+define host{
+        use                     linux-server
+        host_name               area90180
+        alias                   area90180
+        address                 10.24.90.180
+        }
+
+
+# Define a host for the area90181
+
+define host{
+        use                     linux-server
+        host_name               area90181
+        alias                   area90181
+        address                 10.24.90.181
+        }
+
+
+# Define a host for the area90182
+
+define host{
+        use                     linux-server
+        host_name               area90182
+        alias                   area90182
+        address                 10.24.90.182
+        }
+
+
+# Define a host for the area90183
+
+define host{
+        use                     linux-server
+        host_name               area90183
+        alias                   area90183
+        address                 10.24.90.183
+        }
+
+
+# Define a host for the area90184
+
+define host{
+        use                     linux-server
+        host_name               area90184
+        alias                   area90184
+        address                 10.24.90.184
+        }
+
+
+# Define a host for the remy90185
+
+define host{
+        use                     linux-server
+        host_name               remy90185
+        alias                   remy90185
+        address                 10.24.90.185
+        }
+
+
+# Define a host for the remy90186
+
+define host{
+        use                     linux-server
+        host_name               remy90186
+        alias                   remy90186
+        address                 10.24.90.186
+        }
+
+
+# Define a host for the remy90187
+
+define host{
+        use                     linux-server
+        host_name               remy90187
+        alias                   remy90187
+        address                 10.24.90.187
+        }
+
+
+# Define a host for the remy90188
+
+define host{
+        use                     linux-server
+        host_name               remy90188
+        alias                   remy90188
+        address                 10.24.90.188
+        }
+
+
+# Define a host for the remy90189
+
+define host{
+        use                     linux-server
+        host_name               remy90189
+        alias                   remy90189
+        address                 10.24.90.189
+        }
+
+
+# Define a host for the remy90190
+
+define host{
+        use                     linux-server
+        host_name               remy90190
+        alias                   remy90190
+        address                 10.24.90.190
+        }
+
+
+# Define a host for the remy90191
+
+define host{
+        use                     linux-server
+        host_name               remy90191
+        alias                   remy90191
+        address                 10.24.90.191
+        }
+
+
+# Define a host for the remy90192
+
+define host{
+        use                     linux-server
+        host_name               remy90192
+        alias                   remy90192
+        address                 10.24.90.192
+        }
+
+
+# Define a host for the remy90193
+
+define host{
+        use                     linux-server
+        host_name               remy90193
+        alias                   remy90193
+        address                 10.24.90.193
+        }
+
+
+# Define a host for the remy90194
+
+define host{
+        use                     linux-server
+        host_name               remy90194
+        alias                   remy90194
+        address                 10.24.90.194
+        }
+
+
+# Define a host for the remy90195
+
+define host{
+        use                     linux-server
+        host_name               remy90195
+        alias                   remy90195
+        address                 10.24.90.195
+        }
+
+
+# Define a host for the remy90196
+
+define host{
+        use                     linux-server
+        host_name               remy90196
+        alias                   remy90196
+        address                 10.24.90.196
+        }
+
+
+# Define a host for the remy90197
+
+define host{
+        use                     linux-server
+        host_name               remy90197
+        alias                   remy90197
+        address                 10.24.90.197
+        }
+
+
+# Define a host for the remy90198
+
+define host{
+        use                     linux-server
+        host_name               remy90198
+        alias                   remy90198
+        address                 10.24.90.198
+        }
+
+
+# Define a host for the remy90199
+
+define host{
+        use                     linux-server
+        host_name               remy90199
+        alias                   remy90199
+        address                 10.24.90.199
+        }
+
+
+# Define a host for the remy90200
+
+define host{
+        use                     linux-server
+        host_name               remy90200
+        alias                   remy90200
+        address                 10.24.90.200
+        }
+
+
+# Define a host for the remy90201
+
+define host{
+        use                     linux-server
+        host_name               remy90201
+        alias                   remy90201
+        address                 10.24.90.201
+        }
+
+
+# Define a host for the remy90202
+
+define host{
+        use                     linux-server
+        host_name               remy90202
+        alias                   remy90202
+        address                 10.24.90.202
+        }
+
+
+# Define a host for the remy90203
+
+define host{
+        use                     linux-server
+        host_name               remy90203
+        alias                   remy90203
+        address                 10.24.90.203
+        }
+
+
+# Define a host for the remy90204
+
+define host{
+        use                     linux-server
+        host_name               remy90204
+        alias                   remy90204
+        address                 10.24.90.204
+        }
+
+
+# Define a host for the remy90205
+
+define host{
+        use                     linux-server
+        host_name               remy90205
+        alias                   remy90205
+        address                 10.24.90.205
+        }
+
+
+# Define a host for the remy90206
+
+define host{
+        use                     linux-server
+        host_name               remy90206
+        alias                   remy90206
+        address                 10.24.90.206
+        }
+
+
+# Define a host for the vega91095
+
+define host{
+        use                     linux-server
+        host_name               vega91095
+        alias                   vega91095
+        address                 10.24.91.95
+        }
+
+
+# Define a host for the vega91096
+
+define host{
+        use                     linux-server
+        host_name               vega91096
+        alias                   vega91096
+        address                 10.24.91.96
+        }
+
+
+# Define a host for the vega91097
+
+define host{
+        use                     linux-server
+        host_name               vega91097
+        alias                   vega91097
+        address                 10.24.91.97
+        }
+
+
+# Define a host for the juri91098
+
+define host{
+        use                     linux-server
+        host_name               juri91098
+        alias                   juri91098
+        address                 10.24.91.98
+        }
+
+
+# Define a host for the juri91099
+
+define host{
+        use                     linux-server
+        host_name               juri91099
+        alias                   juri91099
+        address                 10.24.91.99
+        }
+
+
+# Define a host for the alex91101
+
+define host{
+        use                     linux-server
+        host_name               alex91101
+        alias                   alex91101
+        address                 10.24.91.101
+        }
+
+
+# Define a host for the alex91102
+
+define host{
+        use                     linux-server
+        host_name               alex91102
+        alias                   alex91102
+        address                 10.24.91.102
+        }
+
+
+# Define a host for the alex91103
+
+define host{
+        use                     linux-server
+        host_name               alex91103
+        alias                   alex91103
+        address                 10.24.91.103
+        }
+
+
+# Define a host for the hugo91104
+
+define host{
+        use                     linux-server
+        host_name               hugo91104
+        alias                   hugo91104
+        address                 10.24.91.104
+        }
+
+
+# Define a host for the hugo91105
+
+define host{
+        use                     linux-server
+        host_name               hugo91105
+        alias                   hugo91105
+        address                 10.24.91.105
+        }
+
+
+# Define a host for the hugo91106
+
+define host{
+        use                     linux-server
+        host_name               hugo91106
+        alias                   hugo91106
+        address                 10.24.91.106
+        }
+
+
+# Define a host for the hugo91107
+
+define host{
+        use                     linux-server
+        host_name               hugo91107
+        alias                   hugo91107
+        address                 10.24.91.107
+        }
+
+
+# Define a host for the hugo91108
+
+define host{
+        use                     linux-server
+        host_name               hugo91108
+        alias                   hugo91108
+        address                 10.24.91.108
+        }
+
+
+# Define a host for the rose91109
+
+define host{
+        use                     linux-server
+        host_name               rose91109
+        alias                   rose91109
+        address                 10.24.91.109
+        }
+
+
+# Define a host for the rose91110
+
+define host{
+        use                     linux-server
+        host_name               rose91110
+        alias                   rose91110
+        address                 10.24.91.110
+        }
+
+
+# Define a host for the rose91111
+
+define host{
+        use                     linux-server
+        host_name               rose91111
+        alias                   rose91111
+        address                 10.24.91.111
+        }
+
+
+# Define a host for the rose91112
+
+define host{
+        use                     linux-server
+        host_name               rose91112
+        alias                   rose91112
+        address                 10.24.91.112
+        }
+
+
+# Define a host for the rose91113
+
+define host{
+        use                     linux-server
+        host_name               rose91113
+        alias                   rose91113
+        address                 10.24.91.113
+        }
+
+
+# Define a host for the rose91114
+
+define host{
+        use                     linux-server
+        host_name               rose91114
+        alias                   rose91114
+        address                 10.24.91.114
+        }
+
+
+# Define a host for the rose91115
+
+define host{
+        use                     linux-server
+        host_name               rose91115
+        alias                   rose91115
+        address                 10.24.91.115
+        }
+
+
+# Define a host for the rose91116
+
+define host{
+        use                     linux-server
+        host_name               rose91116
+        alias                   rose91116
+        address                 10.24.91.116
+        }
+
+
+# Define a host for the rose91117
+
+define host{
+        use                     linux-server
+        host_name               rose91117
+        alias                   rose91117
+        address                 10.24.91.117
+        }
+
+
+# Define a host for the rose91118
+
+define host{
+        use                     linux-server
+        host_name               rose91118
+        alias                   rose91118
+        address                 10.24.91.118
+        }
+
+
+# Define a host for the rose91119
+
+define host{
+        use                     linux-server
+        host_name               rose91119
+        alias                   rose91119
+        address                 10.24.91.119
+        }
+
+
+# Define a host for the rose91120
+
+define host{
+        use                     linux-server
+        host_name               rose91120
+        alias                   rose91120
+        address                 10.24.91.120
+        }
+
+
+# Define a host for the rose91121
+
+define host{
+        use                     linux-server
+        host_name               rose91121
+        alias                   rose91121
+        address                 10.24.91.121
+        }
+
+
+# Define a host for the jack94049
+
+define host{
+        use                     linux-server
+        host_name               jack94049
+        alias                   jack94049
+        address                 10.24.94.49
+        }
+
+
+# Define a host for the jack94050
+
+define host{
+        use                     linux-server
+        host_name               jack94050
+        alias                   jack94050
+        address                 10.24.94.50
+        }
+
+
+# Define a host for the jack94051
+
+define host{
+        use                     linux-server
+        host_name               jack94051
+        alias                   jack94051
+        address                 10.24.94.51
+        }
+
+
+# Define a host for the jack94052
+
+define host{
+        use                     linux-server
+        host_name               jack94052
+        alias                   jack94052
+        address                 10.24.94.52
+        }
+
+
+# Define a host for the jack94053
+
+define host{
+        use                     linux-server
+        host_name               jack94053
+        alias                   jack94053
+        address                 10.24.94.53
+        }
+
+
+# Define a host for the jack94054
+
+define host{
+        use                     linux-server
+        host_name               jack94054
+        alias                   jack94054
+        address                 10.24.94.54
+        }
+
+
+# Define a host for the jack94055
+
+define host{
+        use                     linux-server
+        host_name               jack94055
+        alias                   jack94055
+        address                 10.24.94.55
+        }
+
+
+# Define a host for the jack94056
+
+define host{
+        use                     linux-server
+        host_name               jack94056
+        alias                   jack94056
+        address                 10.24.94.56
+        }
+
+
+# Define a host for the jack94057
+
+define host{
+        use                     linux-server
+        host_name               jack94057
+        alias                   jack94057
+        address                 10.24.94.57
+        }
+
+
+# Define a host for the jack94059
+
+define host{
+        use                     linux-server
+        host_name               jack94059
+        alias                   jack94059
+        address                 10.24.94.59
+        }
+
+
+# Define a host for the jack94060
+
+define host{
+        use                     linux-server
+        host_name               jack94060
+        alias                   jack94060
+        address                 10.24.94.60
+        }
+
+
+# Define a host for the jack94061
+
+define host{
+        use                     linux-server
+        host_name               jack94061
+        alias                   jack94061
+        address                 10.24.94.61
+        }
+
+
+# Define a host for the jack94063
+
+define host{
+        use                     linux-server
+        host_name               jack94063
+        alias                   jack94063
+        address                 10.24.94.63
+        }
+
+
+# Define a host for the jack94064
+
+define host{
+        use                     linux-server
+        host_name               jack94064
+        alias                   jack94064
+        address                 10.24.94.64
+        }
+
+
+# Define a host for the jack94065
+
+define host{
+        use                     linux-server
+        host_name               jack94065
+        alias                   jack94065
+        address                 10.24.94.65
+        }
+
+
+# Define a host for the jack94066
+
+define host{
+        use                     linux-server
+        host_name               jack94066
+        alias                   jack94066
+        address                 10.24.94.66
+        }
+
+
+# Define a host for the jack94067
+
+define host{
+        use                     linux-server
+        host_name               jack94067
+        alias                   jack94067
+        address                 10.24.94.67
+        }
+
+
+# Define a host for the jack94068
+
+define host{
+        use                     linux-server
+        host_name               jack94068
+        alias                   jack94068
+        address                 10.24.94.68
+        }
+
+
+# Define a host for the jack94069
+
+define host{
+        use                     linux-server
+        host_name               jack94069
+        alias                   jack94069
+        address                 10.24.94.69
+        }
+
+
+# Define a host for the jack94070
+
+define host{
+        use                     linux-server
+        host_name               jack94070
+        alias                   jack94070
+        address                 10.24.94.70
+        }
+
+
+# Define a host for the jack94071
+
+define host{
+        use                     linux-server
+        host_name               jack94071
+        alias                   jack94071
+        address                 10.24.94.71
+        }
+
+
+# Define a host for the jack94072
+
+define host{
+        use                     linux-server
+        host_name               jack94072
+        alias                   jack94072
+        address                 10.24.94.72
+        }
+
+
+# Define a host for the jack94073
+
+define host{
+        use                     linux-server
+        host_name               jack94073
+        alias                   jack94073
+        address                 10.24.94.73
+        }
+
+
+# Define a host for the jack94074
+
+define host{
+        use                     linux-server
+        host_name               jack94074
+        alias                   jack94074
+        address                 10.24.94.74
+        }
+
+
+# Define a host for the jack94075
+
+define host{
+        use                     linux-server
+        host_name               jack94075
+        alias                   jack94075
+        address                 10.24.94.75
+        }
+
+
+# Define a host for the jack94076
+
+define host{
+        use                     linux-server
+        host_name               jack94076
+        alias                   jack94076
+        address                 10.24.94.76
+        }
+
+
+# Define a host for the jack94077
+
+define host{
+        use                     linux-server
+        host_name               jack94077
+        alias                   jack94077
+        address                 10.24.94.77
+        }
+
+
+# Define a host for the jack94078
+
+define host{
+        use                     linux-server
+        host_name               jack94078
+        alias                   jack94078
+        address                 10.24.94.78
+        }
+
+
+# Define a host for the jack94079
+
+define host{
+        use                     linux-server
+        host_name               jack94079
+        alias                   jack94079
+        address                 10.24.94.79
+        }
+
+
+# Define a host for the jack94080
+
+define host{
+        use                     linux-server
+        host_name               jack94080
+        alias                   jack94080
+        address                 10.24.94.80
+        }
+
+
+# Define a host for the jack94081
+
+define host{
+        use                     linux-server
+        host_name               jack94081
+        alias                   jack94081
+        address                 10.24.94.81
+        }
+
+
+# Define a host for the jack94082
+
+define host{
+        use                     linux-server
+        host_name               jack94082
+        alias                   jack94082
+        address                 10.24.94.82
+        }
+
+
+# Define a host for the jack94083
+
+define host{
+        use                     linux-server
+        host_name               jack94083
+        alias                   jack94083
+        address                 10.24.94.83
+        }
+
+
+# Define a host for the jack94084
+
+define host{
+        use                     linux-server
+        host_name               jack94084
+        alias                   jack94084
+        address                 10.24.94.84
+        }
+
+
+# Define a host for the jack94085
+
+define host{
+        use                     linux-server
+        host_name               jack94085
+        alias                   jack94085
+        address                 10.24.94.85
+        }
+
+
+# Define a host for the jack94086
+
+define host{
+        use                     linux-server
+        host_name               jack94086
+        alias                   jack94086
+        address                 10.24.94.86
+        }
+
+
+# Define a host for the jack94087
+
+define host{
+        use                     linux-server
+        host_name               jack94087
+        alias                   jack94087
+        address                 10.24.94.87
+        }
+
+
+# Define a host for the jack94088
+
+define host{
+        use                     linux-server
+        host_name               jack94088
+        alias                   jack94088
+        address                 10.24.94.88
+        }
+
+
+# Define a host for the jack94089
+
+define host{
+        use                     linux-server
+        host_name               jack94089
+        alias                   jack94089
+        address                 10.24.94.89
+        }
+
+
+# Define a host for the jack94090
+
+define host{
+        use                     linux-server
+        host_name               jack94090
+        alias                   jack94090
+        address                 10.24.94.90
+        }
+
+
+# Define a host for the jack94091
+
+define host{
+        use                     linux-server
+        host_name               jack94091
+        alias                   jack94091
+        address                 10.24.94.91
+        }
+
+
+# Define a host for the jack94092
+
+define host{
+        use                     linux-server
+        host_name               jack94092
+        alias                   jack94092
+        address                 10.24.94.92
+        }
+
+
+# Define a host for the jack94093
+
+define host{
+        use                     linux-server
+        host_name               jack94093
+        alias                   jack94093
+        address                 10.24.94.93
+        }
+
+
+# Define a host for the hawk94094
+
+define host{
+        use                     linux-server
+        host_name               hawk94094
+        alias                   hawk94094
+        address                 10.24.94.94
+        }
+
+
+# Define a host for the hawk94095
+
+define host{
+        use                     linux-server
+        host_name               hawk94095
+        alias                   hawk94095
+        address                 10.24.94.95
+        }
+
+
+# Define a host for the hawk94096
+
+define host{
+        use                     linux-server
+        host_name               hawk94096
+        alias                   hawk94096
+        address                 10.24.94.96
+        }
+
+
+# Define a host for the hawk94097
+
+define host{
+        use                     linux-server
+        host_name               hawk94097
+        alias                   hawk94097
+        address                 10.24.94.97
+        }
+
+
+# Define a host for the hawk94098
+
+define host{
+        use                     linux-server
+        host_name               hawk94098
+        alias                   hawk94098
+        address                 10.24.94.98
+        }
+
+
+# Define a host for the hawk94099
+
+define host{
+        use                     linux-server
+        host_name               hawk94099
+        alias                   hawk94099
+        address                 10.24.94.99
+        }
+
+
+# Define a host for the area94101
+
+define host{
+        use                     linux-server
+        host_name               area94101
+        alias                   area94101
+        address                 10.24.94.101
+        }
+
+
+# Define a host for the area94102
+
+define host{
+        use                     linux-server
+        host_name               area94102
+        alias                   area94102
+        address                 10.24.94.102
+        }
+
+
+# Define a host for the area94103
+
+define host{
+        use                     linux-server
+        host_name               area94103
+        alias                   area94103
+        address                 10.24.94.103
+        }
+
+
+# Define a host for the area94104
+
+define host{
+        use                     linux-server
+        host_name               area94104
+        alias                   area94104
+        address                 10.24.94.104
+        }
+
+
+# Define a host for the area94105
+
+define host{
+        use                     linux-server
+        host_name               area94105
+        alias                   area94105
+        address                 10.24.94.105
+        }
+
+
+# Define a host for the area94106
+
+define host{
+        use                     linux-server
+        host_name               area94106
+        alias                   area94106
+        address                 10.24.94.106
+        }
+
+
+# Define a host for the area94107
+
+define host{
+        use                     linux-server
+        host_name               area94107
+        alias                   area94107
+        address                 10.24.94.107
+        }
+
+
+# Define a host for the area94108
+
+define host{
+        use                     linux-server
+        host_name               area94108
+        alias                   area94108
+        address                 10.24.94.108
+        }
+
+
+# Define a host for the area94109
+
+define host{
+        use                     linux-server
+        host_name               area94109
+        alias                   area94109
+        address                 10.24.94.109
+        }
+
+
+# Define a host for the area94110
+
+define host{
+        use                     linux-server
+        host_name               area94110
+        alias                   area94110
+        address                 10.24.94.110
+        }
+
+
+# Define a host for the area94111
+
+define host{
+        use                     linux-server
+        host_name               area94111
+        alias                   area94111
+        address                 10.24.94.111
+        }
+
+
+# Define a host for the area94112
+
+define host{
+        use                     linux-server
+        host_name               area94112
+        alias                   area94112
+        address                 10.24.94.112
+        }
+
+
+# Define a host for the area94113
+
+define host{
+        use                     linux-server
+        host_name               area94113
+        alias                   area94113
+        address                 10.24.94.113
+        }
+
+
+# Define a host for the area94114
+
+define host{
+        use                     linux-server
+        host_name               area94114
+        alias                   area94114
+        address                 10.24.94.114
+        }
+
+
+# Define a host for the area94115
+
+define host{
+        use                     linux-server
+        host_name               area94115
+        alias                   area94115
+        address                 10.24.94.115
+        }
+
+
+# Define a host for the area94116
+
+define host{
+        use                     linux-server
+        host_name               area94116
+        alias                   area94116
+        address                 10.24.94.116
+        }
+
+
+# Define a host for the area94117
+
+define host{
+        use                     linux-server
+        host_name               area94117
+        alias                   area94117
+        address                 10.24.94.117
+        }
+
+
+# Define a host for the area94118
+
+define host{
+        use                     linux-server
+        host_name               area94118
+        alias                   area94118
+        address                 10.24.94.118
+        }
+
+
+# Define a host for the area94119
+
+define host{
+        use                     linux-server
+        host_name               area94119
+        alias                   area94119
+        address                 10.24.94.119
+        }
+
+
+# Define a host for the area94120
+
+define host{
+        use                     linux-server
+        host_name               area94120
+        alias                   area94120
+        address                 10.24.94.120
+        }
+
+
+# Define a host for the remy94121
+
+define host{
+        use                     linux-server
+        host_name               remy94121
+        alias                   remy94121
+        address                 10.24.94.121
+        }
+
+
+# Define a host for the remy94122
+
+define host{
+        use                     linux-server
+        host_name               remy94122
+        alias                   remy94122
+        address                 10.24.94.122
+        }
+
+
+# Define a host for the jack94201
+
+define host{
+        use                     linux-server
+        host_name               jack94201
+        alias                   jack94201
+        address                 10.24.94.201
+        }
+
+
+# Define a host for the jack94202
+
+define host{
+        use                     linux-server
+        host_name               jack94202
+        alias                   jack94202
+        address                 10.24.94.202
+        }
+
+
+# Define a host for the juri95099
+
+define host{
+        use                     linux-server
+        host_name               juri95099
+        alias                   juri95099
+        address                 10.24.95.99
+        }
+
+
+# Define a host for the alex95101
+
+define host{
+        use                     linux-server
+        host_name               alex95101
+        alias                   alex95101
+        address                 10.24.95.101
+        }
+
+
+# Define a host for the alex95102
+
+define host{
+        use                     linux-server
+        host_name               alex95102
+        alias                   alex95102
+        address                 10.24.95.102
+        }
+
+
+# Define a host for the rose95103
+
+define host{
+        use                     linux-server
+        host_name               rose95103
+        alias                   rose95103
+        address                 10.24.95.103
+        }
+
+
+# Define a host for the rose95104
+
+define host{
+        use                     linux-server
+        host_name               rose95104
+        alias                   rose95104
+        address                 10.24.95.104
+        }
+

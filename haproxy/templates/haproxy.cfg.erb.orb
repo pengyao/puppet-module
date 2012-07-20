@@ -1,0 +1,134 @@
+#---------------------------------------------------------------------
+# Example configuration for a possible web application.  See the
+# full configuration options online.
+#
+#   http://haproxy.1wt.eu/download/1.4/doc/configuration.txt
+#
+#---------------------------------------------------------------------
+
+#---------------------------------------------------------------------
+# Global settings
+#---------------------------------------------------------------------
+global
+    log         127.0.0.1 local6
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    log-send-hostname <%= hostname %>
+    maxconn     20000
+    ulimit-n    65535
+    user        haproxy
+    group       haproxy
+    daemon
+
+    # turn on stats unix socket
+    stats socket /var/lib/haproxy/stats level admin
+
+#---------------------------------------------------------------------
+# common defaults that all the 'listen' and 'backend' sections will
+# use if not designated in their block
+#---------------------------------------------------------------------
+defaults
+    mode    http
+    option	redispatch
+    option	contstats
+    retries	3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          70s
+    timeout server          70s
+    timeout check           10s
+
+
+#---------------------------------------------------------------------
+# statistics setting
+#---------------------------------------------------------------------
+listen admin_stats
+    bind  *:1080
+    log   127.0.0.1 local6 err
+    stats enable
+    stats refresh 1m
+    stats uri /admin?stats
+    stats realm MOBCON\ Haproxy
+    stats auth admin:admin
+    stats hide-version
+    stats show-legends
+    stats admin if TRUE
+ 
+
+#---------------------------------------------------------------------
+# health check setting
+#---------------------------------------------------------------------
+listen site_status
+    bind 0.0.0.0:1081
+    mode http
+    monitor-uri	 	 /site_status
+    acl				 site_dead nbsrv(tomcatcluster) lt 1
+    monitor			 fail if site_dead
+
+
+#---------------------------------------------------------------------
+# main frontend which proxys to the backends
+#---------------------------------------------------------------------
+frontend http-in
+    bind			 *:80
+    log				 global
+    option			 httplog
+    option			 logasap
+    option			 dontlognull
+    option			 forwardfor header REMOTE_ADDR
+    errorfile		 503		/etc/haproxy/errfile/sorry.http
+    errorfile		 504		/etc/haproxy/errfile/sorry.http
+
+    acl              uri_manager path_beg /manager /config /loader /logmon
+    acl              inside_ip src 10.0.0.0/8 192.168.0.0/16 221.246.250.70
+    block if ! inside_ip uri_manager
+
+    rsprep ^Server:\ (.*)$ Server:\ Mobcon\ Server if ! inside_ip
+
+    rspadd FrontServer:\ <%= hostname %> if inside_ip
+
+    default_backend  tomcatcluster
+
+    # log the name of the virtual server
+    capture request  header Host len 32
+    
+    # log the name of the https connection server
+    capture request  header X-MOBCON-SECURE len 24
+    
+    # log the name of the  user-agent
+    capture request  header User-Agent len 2048
+
+    # log the amount of data uploaded during a POST
+    capture request  header Content-Length len 32
+    
+    # log the beginning of the referrer
+    capture request  header Referer len 2048
+    
+    # log the URL location during a redirection
+    capture response header Content-Type len 512
+
+    # logging the content-length is useful with "option logasap"
+    capture response header Content-Length len 32
+
+#---------------------------------------------------------------------
+# static backend for serving up sorry page and such
+#---------------------------------------------------------------------
+#backend static
+#	balance     roundrobin
+
+#---------------------------------------------------------------------
+# round robin balancing between the tomcatcluster backends
+#---------------------------------------------------------------------
+backend tomcatcluster
+    balance     leastconn
+	option  httpchk HEAD /monitor/localhost/ HTTP/1.1\r\nHost:\ m2.mobcon.jp\r\nUser-Agent:\ Mozilla\/5.0\ (iPhone;\ U;\ CPU\ iPhone\ OS\ 2_0_1\ like\ Mac\ OS\ X;\ ja-jp)\ AppleWebKit\/525.18.1\ (KHTML,\ like Gecko)\ Version\/3.1.1\ Mobile\/5B108\ Safari\/525.20\r\nConnection: Close\r\n\r\n
+	<%if ! frontnode.empty? -%>
+	<% frontnode.keys.sort.each do |nodename| -%> 
+	server  <%= nodename -%> <%= frontnode[nodename] -%> check inter 2000 rise 2 fall 3<% end -%>
+	<% end -%>
+
+	<%if ! backnode.empty? -%>
+	<% backnode.keys.sort.each do |nodename| -%> 
+	server  <%= nodename -%> <%= backnode[nodename] -%> check backup inter 2000 rise 2 fall 3<% end -%>
+	<% end -%>

@@ -1,0 +1,8 @@
+check process <%= tomcat_name %> with pidfile /var/run/jsvc-<%= tomcat_name %>.pid
+start program = "/etc/init.d/<%= tomcat_name %> start"
+stop program = "/etc/init.d/<%= tomcat_name %> stop"
+if failed port <%= http_port %> then restart
+if 3 restarts within 5 cycles then timeout
+if failed url http://honey:opera@127.0.0.1:<%= http_port %>/manager/html timeout 5 seconds for 3 cycles then restart
+if failed url http://127.0.0.1:<%= http_port %>/monitor/localhost/ timeout 5 seconds for 3 cycles then restart
+group tomcat

@@ -1,0 +1,16 @@
+<%= basedir %>/logs/catalina.out {
+    daily
+    rotate 90
+    create 0644
+    missingok
+    notifempty
+    dateext
+    dateformat .%Y%m%d
+    sharedscripts
+    compress
+    postrotate
+        if [ -f /var/run/jsvc-<%= tomcat_name %>.pid ]; then
+            /bin/kill -USR1 `cat /var/run/jsvc-<%= tomcat_name %>.pid`
+        fi
+    endscript
+}

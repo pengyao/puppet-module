@@ -1,0 +1,19 @@
+<jp.mobcon.common.entity.EditionMap>
+  <ssidToEdition class="tree-map">
+    <no-comparator/>
+    <entry>
+      <string>*</string>
+      <string>smartphone</string>
+    </entry>
+  </ssidToEdition>
+  <editionToSsid class="tree-map">
+    <no-comparator/>
+    <entry>
+      <string>smartphone</string>
+      <tree-set>
+        <no-comparator/>
+        <string>*</string>
+      </tree-set>
+    </entry>
+  </editionToSsid>
+</jp.mobcon.common.entity.EditionMap>

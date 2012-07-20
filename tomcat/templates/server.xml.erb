@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server port="<%= server_port %>" shutdown="SHUTDOWN">
+  <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
+  <Listener className="org.apache.catalina.core.JasperListener" />
+  <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener" />
+  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+  <GlobalNamingResources>
+    <Resource name="UserDatabase" auth="Container"
+              type="org.apache.catalina.UserDatabase"
+              description="User database that can be updated and saved"
+              factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+              pathname="conf/tomcat-users.xml" />
+  </GlobalNamingResources>
+  <Service name="Catalina">
+    <Connector port="<%= http_port %>" protocol="HTTP/1.1" connectionTimeout="65000" redirectPort="8443" maxThreads="1000" server="<%= hostname %>:<%= tomcat_name %>"/>
+    <Engine name="Catalina" defaultHost="localhost" jvmRoute="m999">
+      <Valve
+         className="org.apache.catalina.valves.RemoteIpValve"
+         internalProxies="10\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+         remoteIpHeader="remote_addr"
+      />
+        <Realm name="UserDatabaseRealm" className="org.apache.catalina.realm.JNDIRealm" debug="99"
+                connectionURL="ldap://ldap.mobcon.inside:389"
+                userPattern="uid={0},ou=people,dc=mobcon,dc=inside"
+                roleBase="ou=groups,dc=mobcon,dc=inside"
+                roleSubtree="true"
+                roleSearch="(&amp;(objectClass=posixGroup)(memberUid={1}))"
+                roleName="cn"
+                roleNested="true"
+        />
+      <Host name="localhost"  appBase="webapps"
+        unpackWARs="true" autoDeploy="true"
+        xmlValidation="false" xmlNamespaceAware="false">
+      </Host>
+    </Engine>
+  </Service>
+</Server>

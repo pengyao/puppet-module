@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>javax.jdo.option.ConnectionURL</name>
+  <value>jdbc:mysql://jack94063.mobcon.inside/metastore</value>
+</property>
+     
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <value>com.mysql.jdbc.Driver</value>
+</property>
+     
+<property>
+  <name>javax.jdo.option.ConnectionUserName</name>
+  <value>hiveuser</value>
+</property>
+     
+<property>
+  <name>javax.jdo.option.ConnectionPassword</name>
+  <value>hiveuser</value>
+</property>
+     
+<property>
+  <name>datanucleus.autoCreateSchema</name>
+  <value>false</value>
+</property>
+     
+<property>
+  <name>datanucleus.fixedDatastore</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.exec.compress.output</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>mapred.output.compression.codec</name>
+  <value>org.apache.hadoop.io.compress.SnappyCodec</value>
+</property>
+
+<property>
+  <name>mapred.output.compression.type</name>
+  <value>BLOCK</value>
+</property>
+
+<property>
+  <name>hive.aux.jars.path</name>
+  <value>file:///usr/lib/hive/lib/hive-contrib-0.7.1-cdh3u2.jar</value>
+</property>
+
+</configuration>

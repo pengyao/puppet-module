@@ -1,0 +1,18 @@
+PATH=/usr/bin/:${PATH}
+APLOGDIR=/var/log/www/ 
+
+CRONLOG=/var/log/cronlog/
+
+NOWYEAR=`date +%Y`
+NOWMONTH=`date +%m`
+TRGDAY=`date +%d`
+TRGDATE=$NOWYEAR$NOWMONTH$TRGDAY
+
+# GZip apache log files
+nice -10 find ${APLOGDIR}* -type f -ctime +1 ! -name '*.bz2' ! -name '*.gz' | xargs -i gzip {}
+sleep 10
+find ${APLOGDIR}* -type f -ctime 0 -name '*.gz' | xargs -0 echo >> ${CRONLOG}"httpdcron_"${TRGDATE}
+sleep 10
+
+#EOF#
+

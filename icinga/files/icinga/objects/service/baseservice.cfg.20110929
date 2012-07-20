@@ -1,0 +1,104 @@
+###############################################################################
+###############################################################################
+#
+# SERVICE DEFINITIONS
+#
+###############################################################################
+###############################################################################
+
+
+# Define a service to ping the local machine
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             PING
+        check_command                   check_ping!100.0,20%!500.0,60%
+        }
+
+
+# Define a service to check the disk space of the root partition
+# on the local machine.  Warning if < 20% free, critical if
+# < 10% free space on partition.
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             Root Partition
+        check_command                   check_local_disk!20%!10%!/
+        }
+
+
+
+# Define a service to check the number of currently logged in
+# users on the local machine.  Warning if > 20 users, critical
+# if > 50 users.
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             Current Users
+        check_command                   check_local_users!20!50
+        }
+
+
+# Define a service to check the number of currently running procs
+# on the local machine.  Warning if > 350 processes, critical if
+# > 500 users.
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             Total Processes
+        check_command                   check_local_procs!350!500!RSZDT
+        }
+
+
+
+# Define a service to check the load on the local machine.
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             Current Load
+        check_command                   check_local_load!5.0,4.0,3.0!10.0,6.0,4.0
+        }
+
+
+
+# Define a service to check the swap usage the local machine.
+# Critical if less than 10% of swap is free, warning if less than 20% is free
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             Swap Usage
+        check_command                   check_local_swap!20!10
+        }
+
+
+
+# Define a service to check SSH on the local machine.
+# Disable notifications for this service by default, as not all users may have SSH enabled.
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             SSH
+        check_command                   check_ssh
+        notifications_enabled           0
+        }
+
+
+
+# Define a service to check HTTP on the local machine.
+# Disable notifications for this service by default, as not all users may have HTTP enabled.
+
+define service{
+        use                             local-service         ; Name of service template to use
+        host_name                       jack90096,jack90097,jack90098,jack90099,area90101,area90102,area90103,area90104,area90105,area90106,area90107,area90108,area90109,area90110,area90111,area90112,area90113,area90114,area90115,area90116,area90117,area90118,area90119,area90120,area90121,area90122,area90123,area90124,area90125,area90126,area90127,area90128,area90129,area90130,area90131,area90132,area90133,area90134,area90135,area90136,area90137,area90138,area90139,area90140,area90141,area90142,area90143,area90144,area90145,area90146,area90147,area90148,area90149,area90150,area90151,area90152,area90153,area90154,area90155,area90156,area90157,area90158,area90159,area90160,area90161,area90162,area90163,area90164,area90165,area90166,area90167,area90168,area90169,area90170,area90171,area90172,area90173,area90174,area90175,area90176,area90177,area90178,area90179,area90180,area90181,area90182,area90183,area90184,remy90185,remy90186,remy90187,remy90188,remy90189,remy90190,remy90191,remy90192,remy90193,remy90194,remy90195,remy90196,remy90197,remy90198,remy90199,remy90200,remy90201,remy90202,remy90203,remy90204,remy90205,remy90206,vega91095,vega91096,vega91097,juri91098,juri91099,alex91101,alex91102,alex91103,hugo91104,hugo91105,hugo91106,hugo91107,hugo91108,rose91109,rose91110,rose91111,rose91112,rose91113,rose91114,rose91115,rose91116,rose91117,rose91118,rose91119,rose91120,rose91121,jack94049,jack94050,jack94051,jack94052,jack94053,jack94054,jack94055,jack94056,jack94057,jack94059,jack94060,jack94061,jack94063,jack94064,jack94065,jack94066,jack94067,jack94068,jack94069,jack94070,jack94071,jack94072,jack94073,jack94074,jack94075,jack94076,jack94077,jack94078,jack94079,jack94080,jack94081,jack94082,jack94083,jack94084,jack94085,jack94086,jack94087,jack94088,jack94089,jack94090,jack94091,jack94092,jack94093,hawk94094,hawk94095,hawk94096,hawk94097,hawk94098,hawk94099,area94101,area94102,area94103,area94104,area94105,area94106,area94107,area94108,area94109,area94110,area94111,area94112,area94113,area94114,area94115,area94116,area94117,area94118,area94119,area94120,remy94121,remy94122,jack94201,jack94202,juri95099,alex95101,alex95102,rose95103,rose95104,localhost
+        service_description             HTTP
+        check_command                   check_http
+        notifications_enabled           0
+        }
+

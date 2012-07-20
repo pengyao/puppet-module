@@ -1,0 +1,40 @@
+[main]
+	confdir = /etc/puppet
+	vardir = /var/lib/puppet
+	logdir = $vardir/log
+	rundir = /var/run/puppet
+#	pluginsync = true
+
+[master]
+	ssl_client_header = SSL_CLIENT_S_DN
+	ssl_client_verify_header = SSL_CLIENT_VERIFY
+	autosign = true
+	reports = http, foreman
+	sendmail = /usr/lib/sendmail
+	reportfrom = puppetmaster@mobcon.inside
+	smtpserver = localhost
+	reporturl = http://jack94202.mobcon.inside:3000/reports/upload
+	report = true
+	reportdir = /var/lib/puppet/reports
+	rrddir = /var/lib/puppet/rrd
+	runinterval = 86400
+	storeconfigs = true
+	thin_storeconfigs = true
+	dbadapter = mysql
+	dbuser = puppet
+	dbpassword = puppet
+	dbserver = localhost
+	dbsocket = /var/lib/mysql/mysql.sock
+	rrddir = /var/lib/puppet/rrd
+	rrdgraph = true
+	masterlog = /var/lib/puppet/log/puppetmaster.log
+	node_terminus = exec
+	external_nodes = /usr/bin/env PUPPET_DASHBOARD_URL=http://localhost:3000 /usr/share/puppet-dashboard/bin/external_node
+
+[agent]
+	pidfile = /var/lib/puppet/run/agent.pid
+	classfile = $vardir/state/classes.txt
+	server = puppet.mobcon.inside
+	report = true
+	listen = true
+	runinterval = 86400

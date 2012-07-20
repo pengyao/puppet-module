@@ -1,0 +1,15 @@
+class profile::install {
+	package {"augeas":
+		name   => ["augeas", "augeas-libs"],
+		ensure => present,
+	}
+
+	package {"vim":
+		name   => ["vim-enhanced", "vim-common"],
+		ensure => present,
+	}
+
+	package {"zsh":
+		ensure => present,
+	}
+}

@@ -1,0 +1,50 @@
+#!/bin/sh
+
+APLOGDIR=/var/log/www/
+ACCESSLOG=access_log
+ERRORLOG=error_log
+LBLOG=lb_log
+EXT=*
+CRONLOG=/var/log/cronlog/
+
+TRGDATE=`date --date '3 months ago' +%Y%m%d`
+TRGD2=`date --date '3 months ago' +%Y-%m-%d`
+CRONDATE=`date +%Y%m%d`
+
+#echo $TRGDATE
+
+cd $APLOGDIR
+ls $ACCESSLOG.* | cut -f2 -d'.' | \
+while read fdate
+do
+#      echo "filedate:"$fdate
+       if [ `expr $TRGDATE \> $fdate` = 1 ]
+       then
+             echo $APLOGDIR$ACCESSLOG$fdate >> $CRONLOG"dellog_"$CRONDATE
+              rm -f $ACCESSLOG.$fdate$EXT
+       fi
+done
+sleep 10
+ls $ERRORLOG.* | cut -f2 -d'.' | \
+while read fdate
+do
+#       echo "filedate:"$fdate
+        if [ `expr $TRGDATE \> $fdate` = 1 ]
+        then
+              echo $APLOGDIR$ERRORLOG$fdate >> $CRONLOG"dellog_"$CRONDATE
+                rm -f $ERRORLOG.$fdate$EXT
+        fi
+done
+sleep 10
+ls $LBLOG.* | cut -f2 -d'.' | \
+while read fdate
+do
+#       echo "filedate:"$fdate
+        if [ `expr $TRGDATE \> $fdate` = 1 ]
+        then
+                echo $APLOGDIR$LBLOG$fdate >> $CRONLOG"dellog_"$CRONDATE
+                rm -f $LBLOG.$fdate$EXT
+        fi
+done 
+sleep 10
+

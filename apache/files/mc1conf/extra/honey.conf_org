@@ -1,0 +1,14 @@
+<Location /server-status>
+    SetHandler server-status
+</Location>
+
+ProxyRequests Off
+ProxyPass /server-status !
+ProxyPass /index.html !
+ProxyPass /postinfo.html !
+ProxyPass /image3.jpg !
+ProxyPass /robots.txt !
+ProxyPass /sorry.html !
+ProxyPass /patrol.txt !
+ProxyPass / ajp://localhost:8009/ nocanon
+

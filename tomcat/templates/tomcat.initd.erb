@@ -1,0 +1,144 @@
+#!/bin/sh
+# chkconfig: 345 99 30
+# description:  tomcat start/stop script.
+# author:	shu
+############################################################################
+##
+#
+#   Copyright 2004 The Apache Software Foundation.
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+############################################################################
+##
+#
+# Small shell script to show how to start/stop Tomcat using jsvc
+# If you want to have Tomcat running on port 80 please modify the server.xml
+# file:
+#
+#    <!-- Define a non-SSL HTTP/1.1 Connector on port 80 -->
+#    <Connector className="org.apache.catalina.connector.http.HttpConnector"
+#               port="80" minProcessors="5" maxProcessors="75"
+#               enableLookups="true" redirectPort="8443"
+#               acceptCount="10" debug="0" connectionTimeout="60000"/>
+#
+# That is for Tomcat-5.0.x (Apache Tomcat/5.0)
+#
+# Adapt the following lines to your configuration
+JAVA_HOME=/usr/java/latest
+CATALINA_HOME=/usr/local/tomcat
+CATALINA_BASE=/usr/local/<%= tomcat_name %>
+DAEMON_HOME=$CATALINA_HOME/bin
+TOMCAT_USER=tomcat
+TMP_DIR=$CATALINA_BASE/temp
+PID=/var/run/jsvc-<%= tomcat_name %>.pid
+TOMCAT_LIB=$CATALINA_HOME/lib
+chown -R $TOMCAT_USER:$TOMCAT_USER $CATALINA_BASE
+chmod -R 777 $CATALINA_HOME/lib/mobcon
+
+JMX_OPTS="-Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=<%= jmx_port %> -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.media.jai.disableMediaLib=true -XX:-ReduceInitialCardMarks"
+
+CATALINA_OPTS="-server $JMX_OPTS -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.util.logging.config.file=$CATALINA_HOME/conf/logging.properties -Xms1500M -Xmx1500M -Xmn256M -XX:PermSize=256M -XX:MaxPermSize=512m -Xss1m -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxTenuringThreshold=31 -XX:+UseParallelGC -XX:ParallelGCThreads=8 -XX:+UseParallelOldGC -XX:+DisableExplicitGC -XX:+UseAdaptiveSizePolicy -Djavax.xml.transform.TransformerFactory=org.apache.xalan.xsltc.trax.TransformerFactoryImpl -Dorg.apache.xml.dtm.DTMManager=org.apache.xml.dtm.ref.DTMManagerDefault -Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=org.apache.xpath.jaxp.XPathFactoryImpl -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true -Dorg.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH=true -Djava.net.preferIPv4Stack=true -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=true -Dcom.tc.session.id.length=32 -Duser.timezone=Asia/Tokyo"
+#CATALINA_OPTS="-server $JMX_OPTS -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.util.logging.config.file=$CATALINA_HOME/conf/logging.properties -Xms1500M -Xmx1500M -Xss128k -Djavax.xml.transform.TransformerFactory=org.apache.xalan.xsltc.trax.TransformerFactoryImpl -Dorg.apache.xml.dtm.DTMManager=org.apache.xml.dtm.ref.DTMManagerDefault -Djavax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom=org.apache.xpath.jaxp.XPathFactoryImpl -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true -Dorg.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH=true -Djava.net.preferIPv4Stack=true -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=true -Dcom.tc.session.id.length=32 -Duser.timezone=Asia/Tokyo"
+
+CLASSPATH=\
+$JAVA_HOME/lib/tools.jar:\
+$CATALINA_HOME/bin/commons-daemon.jar:\
+$CATALINA_HOME/bin/bootstrap.jar
+
+prog="Tomcat Server"
+[ -e $PID ] && pid=`cat $PID` || :
+ 
+# Source function library.
+. /etc/rc.d/init.d/functions
+ 
+start()
+{
+    #
+    # Start Tomcat
+    #
+    $DAEMON_HOME/jsvc -user $TOMCAT_USER -home $JAVA_HOME \
+    -Dcatalina.home=$CATALINA_HOME -Dcatalina.base=$CATALINA_BASE \
+    -Djava.io.tmpdir=$TMP_DIR \
+    -Djava.library.path=$TOMCAT_LIB \
+    -outfile $CATALINA_BASE/logs/catalina.out -errfile '&1' \
+    -pidfile "$PID" \
+    $CATALINA_OPTS -cp $CLASSPATH org.apache.catalina.startup.Bootstrap 
+    #
+    # To get a verbose JVM
+    # -verbose \
+    # To get a debug of jsvc.
+    # -debug \
+    [ -e $PID ] && echo "pid is `cat $PID`"
+    checkpid `cat $PID`
+    ret=$?
+    if [ $ret -eq 0 ]; then
+		action $"Starting $prog: " /bin/true
+    else
+		action $"Starting $prog: " /bin/false
+    fi
+}
+ 
+stop()
+{
+    # Stop Tomcat
+    #
+    [ "A$pid" != "A" ] && kill $pid
+    ret=$?
+    if [ $ret -eq 0 ]; then
+		action $"Stopping $prog: " /bin/true
+    else
+		action $"Stopping $prog: " /bin/false
+    fi
+}
+
+reload()
+{
+    [ "A$pid" != "A" ] && kill -HUP $pid
+	ret=$?
+	if [ $ret -eq 0 ]; then
+		action $"Reload $prog: " /bin/true
+	else
+		action $"Reload $prog: " /bin/false
+	fi
+}
+ 
+restart()
+{
+    stop
+    sleep 2
+    start
+}
+ 
+ 
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status jsvc-<%= tomcat_name %>
+        ;;
+	reload)
+		reload
+		;;
+    restart)
+        restart
+        ;;
+    *)
+        echo $"Usage: $0 (start|stop|status|reload|restart)"
+        exit 1
+esac
+ 
+exit $?

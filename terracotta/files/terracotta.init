@@ -1,0 +1,71 @@
+#!/bin/sh
+# chkconfig: 345 99 30
+# description:  terracotta start/stop script.
+# author:	shu
+############################################################################
+##
+#
+############################################################################
+export JAVA_HOME=/usr/java/latest
+TERRACOTTA_HOME=/usr/local/terracotta
+TERRACOTTA_CONF=$TERRACOTTA_HOME/conf/tc-config.xml
+TERRACOTTA_USER=terracotta
+TMP_DIR=$CATALINA_HOME/temp
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+ 
+start()
+{
+    #
+    # Start TERRACOTTA
+    #
+	$TERRACOTTA_HOME/bin/start-tc-server.sh -f $TERRACOTTA_CONF >/dev/null 2>&1 &
+    ret=$?
+    if [ $ret -eq 0 ]; then
+		action $"Starting $prog: " /bin/true
+    else
+		action $"Starting $prog: " /bin/false
+    fi
+}
+ 
+stop()
+{
+    # Stop TERRACOTTA
+    #
+	$TERRACOTTA_HOME/bin/stop-tc-server.sh -f $TERRACOTTA_CONF -n `hostname` >/dev/null 2>&1 &
+    ret=$?
+    if [ $ret -eq 0 ]; then
+		action $"Stopping $prog: " /bin/true
+    else
+		action $"Stopping $prog: " /bin/false
+    fi
+}
+
+restart()
+{
+    stop
+    sleep 2
+    start
+}
+ 
+ 
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status start-tc-server.sh
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo $"Usage: $0 (start|stop|status|restart)"
+        exit 1
+esac
+ 
+exit $?

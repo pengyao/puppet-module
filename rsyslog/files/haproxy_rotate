@@ -1,0 +1,16 @@
+/var/log/*haproxy/haproxy.log {
+    daily
+    rotate 90
+    create 0644
+    missingok
+    notifempty
+    dateext
+    dateformat .%Y%m%d
+    sharedscripts
+    compress
+    delaycompress 
+    postrotate
+        /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+        /bin/kill -HUP `cat /var/run/rsyslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
