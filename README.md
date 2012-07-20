@@ -1,0 +1,4 @@
+puppet-module
+=============
+
+puppet-module
